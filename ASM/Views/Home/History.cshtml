@@ -1,0 +1,69 @@
+﻿@model IEnumerable<ASM.Models.DonHang>
+
+@{
+    //ViewData["Title"] = "History";
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<h1>Lịch sử</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Khachhang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ngaydat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tongtien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trangthai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ghichu)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Khachhang.KhachhangID) <br />
+                @Html.DisplayFor(modelItem => item.Khachhang.FullName)<br />
+                @Html.DisplayFor(modelItem => item.Khachhang.EmailAddress)<br />
+                @Html.DisplayFor(modelItem => item.Khachhang.PhoneNumber)<br />
+                @Html.DisplayFor(modelItem => item.Khachhang.Ngaysinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaydat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tongtien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trangthai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ghichu)
+            </td>
+
+            <td>
+                @*<a asp-action="Edit" asp-route-id="@item.DonhangID">Edit</a> |*@
+                <a asp-action="Details" asp-route-id="@item.DonhangID">Thông tin</a> |
+                @*<a asp-action="Delete" asp-route-id="@item.DonhangID">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index">Quay lại</a> 
+</div>

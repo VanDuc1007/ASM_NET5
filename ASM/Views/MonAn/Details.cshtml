@@ -1,0 +1,55 @@
+﻿@model ASM.Models.MonAn
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>THông tin sản phẩm</h1>
+
+<div>
+    <h4>MonAn</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gia)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gia)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Phanloai)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Phanloai)
+        </dd>
+        <dt class="col-sm-2">
+            <img src="~/images/Monan/@Model.Hinh" style="width:250px" />
+            @*@Html.DisplayNameFor(model => model.Hinh)*@
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hinh)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Mota)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Trangthai)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Trangthai)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MonAnID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

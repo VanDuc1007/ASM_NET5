@@ -1,0 +1,154 @@
+﻿@model IEnumerable<ASM.Models.MonAn>;
+@{
+    Layout = "~/Views/Shared/_WebLayout.cshtml";
+}
+
+<style>
+    .list-product {
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product {
+        margin-top: 10px;
+        margin-right: 10px;
+        width: 205px;
+    }
+
+    .img {
+        width: 150px;
+        display: block;
+        margin: auto;
+    }
+
+    .title {
+        color: #0e0e0e;
+        display: block;
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        height: 60px;
+    }
+
+    .field-price {
+        font-size: 24px;
+        color: #d50000;
+        margin-bottom: 15px;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .viewProduct, .addProduct {
+        border: 0;
+        font-weight: 700;
+        padding: 9px 5px;
+        background: #ffd800;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        display: block;
+        width: 186px;
+        margin: 0 auto;
+        color: #0e0e0e;
+    }
+
+    .addProduct {
+        margin-left: 2px;
+    }
+</style>
+@*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <div class="text-center">
+        <h1 class="display-4">Welcome come to Food Heaven</h1>
+    </div>
+    <div class="list-product">
+
+            <div class="product container mt-3">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Hình</th>
+                            <th>Giá</th>
+                            <th>Order</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="~/images/Monan/@item.Hinh" class="img-responsive" style="width:200px" />
+                                </td>
+                                <td>
+                                    <span class="title">@item.Name</span>
+                                    <div class="field-price" style="color:coral"> @item.Gia</div>
+                                </td>
+                                <td>
+                                    <a class="addProduct text-center" href="javascript:addCart(@item.MonAnID);">
+                                        Add order
+                                        <img id="imgBusy_@item.MonAnID" src="~/images/busy.gif" style="display:none" />
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                </table>
+
+            </div>
+
+        </div>*@
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="~/css/Home.css" />
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<h3 class="h3 text-center">Shopping</h3>
+
+@foreach (var item in Model)
+{
+    <div class="float-left mr-3">
+           <div class="product-grid4">
+                <div class="product-image4">
+                    <img src="~/images/Monan/@item.Hinh" class="img-responsive" style="width:200px" />
+                    <span class="product-new-label">New</span>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><span class="title">@item.Name</span></h3>
+                    <div class="price">
+                        @item.Gia
+                    </div>
+                    <a class="add-to-cart text-center" href="javascript:addCart(@item.MonAnID);">
+                        Add to cart
+                        <img id="imgBusy_@item.MonAnID" src="~/images/busy.gif" style="display:none" />
+                    </a>
+                </div>
+        </div>
+    </div>
+}
+<script>
+        function addCart(id) {
+            $("#imgCart").attr("src", '/images/cartA.png');
+            $("#imgBusy_" + id).show();
+            setTimeout(function () {
+                $.ajax({
+                    url: "/Home/AddCart?Id=" + id,
+                    type: "Post",
+                    success: function (result) {
+                        alert(abc);
+                    },
+                    error: function (e) {
+                        alert(this.url);
+                    }
+                });
+                $("#imgBusy_" + id).hide();
+            }, 500);
+        }
+    </script>
+
+
+

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\template\**" />
+    <Compile Remove="wwwroot\tem\**" />
+    <Content Remove="wwwroot\template\**" />
+    <Content Remove="wwwroot\tem\**" />
+    <EmbeddedResource Remove="wwwroot\template\**" />
+    <EmbeddedResource Remove="wwwroot\tem\**" />
+    <None Remove="wwwroot\template\**" />
+    <None Remove="wwwroot\tem\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Controllers\HomeController.cs~RF109f18a0.TMP" />
+    <None Remove="Controllers\MonAnController.cs~RF7557f48.TMP" />
+    <None Remove="Views\Donhang\Index.cshtml~RFd7c3d7f.TMP" />
+    <None Remove="Views\Home\Cart.cshtml~RFd916eda.TMP" />
+    <None Remove="Views\MonAn\Create.cshtml~RFd949e09.TMP" />
+  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="1.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.10" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="wwwroot\images\Monan\" />
+	</ItemGroup>
+
+</Project>

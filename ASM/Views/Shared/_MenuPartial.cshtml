@@ -1,0 +1,22 @@
+﻿@using ASM.Models
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Extensions
+@using ASM.Constant
+
+@{string userName = Context.Session.GetString(SessionKey.NguoiDung.UserName);}
+
+@if (userName != null && userName != "")
+{
+    <li class="nav-item">
+        <a class="nav-item text-dark" asp-area="" asp-controller="Nguoidung" asp-action="Index">Quản Trị</a> |
+    </li>
+    <li class="nav-item">
+        <a class="nav-item text-dark" asp-area="" asp-controller="MonAn" asp-action="Index">Món ăn</a> |
+    </li>
+    <li class="nav-item">
+        <a class="nav-item text-dark" asp-area="" asp-controller="DonHang" asp-action="Index">Đơn hàng</a> |
+    </li>
+    <li class="nav-item">
+        <a class="nav-item text-dark" asp-area="" asp-controller="KhachHang" asp-action="Index">Khách Hàng</a>
+    </li>
+}

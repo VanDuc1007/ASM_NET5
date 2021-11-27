@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ASM.Models.Nguoidung>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Trang chủ</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Admin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Locked)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.ConfirmPassword)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Locked)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>*@
+            @*<th>
+                @Html.DisplayNameFor(model => model.ConfirmPassword)
+            </th>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NguoidungID">Sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.NguoidungID">Thông tin</a> |
+                @*<a asp-action="Delete" asp-route-id="@item.NguoidungID">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

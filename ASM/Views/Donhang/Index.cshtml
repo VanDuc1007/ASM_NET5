@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ASM.Models.DonHang>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Thông tin đơn hàng của khách</h1>
+<p>
+    <a asp-action="Create">Tạo mới</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ngaydat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tongtien)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trangthai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ghichu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Khachhang)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaydat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tongtien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trangthai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ghichu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Khachhang.FullName)<br />
+                @Html.DisplayFor(modelItem => item.Khachhang.EmailAddress)<br />
+                @Html.DisplayFor(modelItem => item.Khachhang.PhoneNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DonhangID">Chỉnh sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.DonhangID">Thông tin</a> |
+                <a asp-action="Delete" asp-route-id="@item.DonhangID">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
